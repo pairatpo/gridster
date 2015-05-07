@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>gridster-test</title>
+
+    <link rel="stylesheet" type="text/css" href="assets/libs/gridster/jquery.gridster.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css" />
+</head>
+<body>
+    <div class="control">
+        <button class="add">Add</button>
+        <button class="delete">Delete</button>
+        <button class="resize">Resize</button>
+        <button class="move">Move</button>
+
+    </div>
+    <div class="gridster ready">
+        <ul style="position: relative;">
+        </ul>
+    </div>
+
+
+    <script src="assets/libs/jquery/jquery.js"></script>
+    <script src="assets/libs/jquery-ui/jquery-ui.js"></script>
+    <script src="assets/libs/gridster/jquery.gridster.with-extras.js"></script>
+    <script src="assets/js/gridster.extension.js"></script>
+
+    <script type="text/javascript">
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+    <script type="text/javascript" id="code">
+        var gridster;
+        var lastId = 0;
+
+        $(function () {
+
+            gridster = $(".gridster > ul").gridster({
+
+                static_class: 'custom_class',
+                //draggable: {
+                //    items: ".gs_w"
+                //},
+                widget_margins: [5, 5],
+                widget_base_dimensions: [70, 70],
+                max_cols: 16
+            }).data('gridster');
+
+            var widgets = [
+                ['<li class="custom_class" id="list-01">0</li>', 1, 2],
+                ['<li class="a" id="list-02">1</li>', 3, 2],
+                ['<li class="a" id="list-03">2</li>', 3, 2]
+            ];
+
+            $.each(widgets, function (i, widget) {
+                gridster.add_widget.apply(gridster, widget)
+            });
+
+            $('.control .add').on('click', function () {
+                gridster.add_widget.apply(gridster, ['<li>' + Date.now() + '</li>', getRandomInt(1, 4), getRandomInt(1, 2)]);
+            });
+
+            $('.control .delete').on('click', function () {
+                if (gridster.$widgets.length > 0) {
+                    var widget = gridster.$widgets.eq(getRandomInt(0, gridster.$widgets.length - 1));
+                    gridster.remove_widget(widget);
+                }
+            });
+
+            $('.control .resize').on('click', function () {
+                if (gridster.$widgets.length > 0) {
+                    var widget = gridster.$widgets.eq(getRandomInt(0, gridster.$widgets.length - 1));
+                    gridster.resize_widget(widget, getRandomInt(1, 4), getRandomInt(1, 2))
+                }
+            });
+            $('.control .move').on('click', function () {
+                if (gridster.$widgets.length > 0) {
+                    var widget = gridster.$widgets.eq(getRandomInt(0, gridster.$widgets.length - 1));
+                    gridster.move_widget(widget, getRandomInt(1, 16), getRandomInt(1, 8))
+                }
+            });
+        });
+    </script>
+</body>
+</html>

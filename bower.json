@@ -1,0 +1,57 @@
+{
+    "name": "gridster-test",
+    "version": "0.0.0",
+    "private": true,
+    "dependencies": {
+        "angular-cache": "~4.0.2",
+        "angular-gridster": "~0.11.7",
+        "angular-ui-router": "~0.2.13",
+        "Bootflat": "~2.0.4",
+        "bootstrap": "~3.3.4",
+        "highcharts-ng": "~0.0.8",
+        "jquery-ui": "~1.11.4",
+        "lodash": "~3.5.0",
+        "moment": "~2.9.0",
+        "ngtoast": "~1.5.0",
+        "angular-bindonce": "~0.3.3",
+		"gridster": "~0.5.6"
+    },
+    "exportsOverride": {
+        "moment": {
+            "": [
+                "moment.js",
+                "lang/ja.js",
+                "lang/zh-cn.js"
+            ]
+        },
+        "gridster": {
+            "": [
+                "dist/jquery.gridster.css",
+                "dist/jquery.gridster.with-extras.js"
+            ]
+        },
+        "Bootflat": {
+            "": [
+                "bootflat/css/bootflat.css",
+                "bootflat/css/bootflat.css.map"
+            ]
+        },
+        "bootstrap": {
+            "css": [
+                "dist/css/bootstrap.css",
+                "dist/css/bootstrap.css.map"
+            ],
+            "js": [
+                "dist/js/bootstrap.js"
+            ],
+            "fonts": [
+                "dist/fonts/glyphicons-halflings-regular.eot",
+                "dist/fonts/glyphicons-halflings-regular.svg",
+                "dist/fonts/glyphicons-halflings-regular.ttf",
+                "dist/fonts/glyphicons-halflings-regular.woff",
+                "dist/fonts/glyphicons-halflings-regular.woff2"
+            ]
+        }
+    },
+    "devDependencies": {}
+}
