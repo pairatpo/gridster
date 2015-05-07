@@ -48,6 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
+    <Content Include="assets\css\main.css" />
+    <Content Include="assets\js\gridster.extension.js" />
+    <Content Include="Gruntfile.js" />
     <Content Include="index.html" />
   </ItemGroup>
   <ItemGroup>
